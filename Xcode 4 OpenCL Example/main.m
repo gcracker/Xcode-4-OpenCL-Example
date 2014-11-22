@@ -194,7 +194,7 @@ int main (int argc, const char * argv[]) {
     
     // First, try to obtain a dispatch queue that can send work to the
     // GPU in our system.                                                [2]
-    dispatch_queue_t queue = gcl_create_dispatch_queue(CL_DEVICE_TYPE_CPU,
+    dispatch_queue_t queue = gcl_create_dispatch_queue(CL_DEVICE_TYPE_GPU,
                                                        NULL);
     
     // In the event that our system does NOT have an OpenCL-compatible GPU,
@@ -283,7 +283,7 @@ int main (int argc, const char * argv[]) {
         };
         // Calling the kernel is easy; you simply call it like a function,
         // passing the ndrange as the first parameter, followed by the expected
-        // kernel parameters.  Note that we case the 'void*' here to the
+        // kernel parameters.  Note that we cast the 'void*' here to the
         // expected OpenCL types.  Remember -- if you use 'float' in your
         // kernel, that's a 'cl_float' from the application's perspective.   [8]
         int dims = NUM_VALUES;
